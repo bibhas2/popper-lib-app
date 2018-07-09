@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { PopperLibComponent } from './popper-lib.component';
 import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
