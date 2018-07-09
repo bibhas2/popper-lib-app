@@ -116,6 +116,46 @@
           }
         }
       }
+    },
+    "popper-lib": {
+      "root": "projects/popper-lib",
+      "sourceRoot": "projects/popper-lib/src",
+      "projectType": "library",
+      "prefix": "popper",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/popper-lib/tsconfig.lib.json",
+            "project": "projects/popper-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "project": "projects/popper-lib/ng-package.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/popper-lib/src/test.ts",
+            "tsConfig": "projects/popper-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/popper-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/popper-lib/tsconfig.lib.json",
+              "projects/popper-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "popper-lib-app"
