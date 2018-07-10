@@ -1,4 +1,4 @@
-import { Component, OnInit, HostBinding, Input } from '@angular/core';
+import { Component, OnInit, HostBinding, Input, HostListener } from '@angular/core';
 
 @Component({
   selector: 'popper-modal',
@@ -15,13 +15,16 @@ export class ModalComponent implements OnInit {
   }
 
   open() {
-    console.log("Opening modal")
     this.display = "block"
   }
 
   close() {
-    console.log("Closing modal")
     this.display = "none"
+  }
+
+  @HostListener("document:keydown.esc")
+  onEsc() {
+    this.close()
   }
 
 }
