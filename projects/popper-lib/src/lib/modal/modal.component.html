@@ -1,4 +1,4 @@
 <div class="modal-content">
-  <span class="close">&times;</span>
-  <ng-content select="[popper-modal-body]"></ng-content>
+  <span class="close" (click)="close()">&times;</span>
+  <ng-content select=".popper-modal-body"></ng-content>
 </div>

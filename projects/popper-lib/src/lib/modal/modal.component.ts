@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'popper-modal',
@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./modal.component.css']
 })
 export class ModalComponent implements OnInit {
-
+  @HostBinding("style.display") visibility = "none"
   constructor() { }
 
   ngOnInit() {
+  }
+
+  open() {
+    this.visibility = "visible"
+  }
+  
+  close() {
+    this.visibility = "none"
   }
 
 }
