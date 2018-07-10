@@ -1,5 +1,4 @@
 :host {
-    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
@@ -17,7 +16,6 @@
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 80%;
 }
 
 .close {
@@ -25,4 +23,5 @@
     float: right;
     font-size: 28px;
     font-weight: bold;
+    cursor: pointer;
 }
