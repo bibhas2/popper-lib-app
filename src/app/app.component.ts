@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {timer} from 'rxjs'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  showProgress = false 
+
+  openProgress() {
+    this.showProgress = true
+
+    timer(3000).subscribe(_ => this.showProgress = false)
+  }
 }
