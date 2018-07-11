@@ -1,5 +1,9 @@
-<popper-modal #modal>
-
+<popper-modal #modal width="300px">
+    <p>Full name:<br/>
+    <input type="text"/></p>
+    <p>E-mail:<br/>
+    <input type="email"/></p>
+    <button (click)="modal.close()">OK</button>
 </popper-modal>
 
 <button (click)="modal.open()">Open Modal</button>
