@@ -1,4 +1,4 @@
-<div class="modal-content" [ngStyle]="{'width': width}">
+<div class="modal-content" [ngStyle]="{'width': width}" (click)="discardClick($event)">
   <span class="close" (click)="close()">&times;</span>
   <ng-content></ng-content>
 </div>

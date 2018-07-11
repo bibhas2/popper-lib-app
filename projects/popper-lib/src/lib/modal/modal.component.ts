@@ -26,5 +26,14 @@ export class ModalComponent implements OnInit {
   onEsc() {
     this.close()
   }
+  
+  @HostListener("click")
+  onHostClick() {
+    this.close()
+  }
+
+  discardClick(event:MouseEvent) {
+    event.stopPropagation()
+  }
 
 }
