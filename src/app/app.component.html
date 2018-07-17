@@ -1,3 +1,8 @@
+
+<button (click)="modal.open()">Open Modal</button>
+<button (click)="openProgress()">Show Progress Indicator</button>
+<button (mouseenter)="menu.open($event)" (mouseleave)="menu.close()">Show Tooltip</button>
+
 <popper-modal #modal width="300px">
     <p>Full name:<br/>
     <input type="text"/></p>
@@ -6,8 +11,10 @@
     <button (click)="modal.close()">OK</button>
 </popper-modal>
 
-<button (click)="modal.open()">Open Modal</button>
-
-<button (click)="openProgress()">Show Progress Indicator</button>
-
 <popper-progress-indicator image="/assets/loading.svg" *ngIf="showProgress"></popper-progress-indicator>
+
+<popper-menu #menu>
+    <div class="tooltip">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+    </div>
+</popper-menu>

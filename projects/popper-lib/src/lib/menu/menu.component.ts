@@ -9,8 +9,7 @@ export class MenuComponent implements OnInit {
   @HostBinding("style.top") y = "0px"
   @HostBinding("style.left") x = "0px"
   @HostBinding("style.visibility") visibility = "hidden"
-  @Input() @HostBinding("style.width") width = "200px"
- 
+
   constructor() { }
  
   ngOnInit() {
