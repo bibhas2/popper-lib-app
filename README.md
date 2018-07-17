@@ -1,27 +1,80 @@
-# PopperLibApp
+# Introduction
+Popper is a collection of Angular components:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.3.
+- Popup menu such as tooltip
+- Modal dialog
+- Progress indicator
 
-## Development server
+These components are created with only a few lines of code and meant to be as useful and lightweight as possible.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# Using Popper Library
 
-## Code scaffolding
+Install Popper in your Angular project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+npm install @bibhas/popper-lib --save
+```
 
-## Build
+Import ``PopperLibModule`` from your ``AppModule``.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```javascript
+import { PopperLibModule } from 'popper-lib';
 
-## Running unit tests
+@NgModule({
+  imports: [
+    PopperLibModule,
+    ...
+  ],
+  ...
+})
+export class AppModule { }
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## The Popup Menu
 
-## Running end-to-end tests
+Selector: ``popper-menu``
+Class: ``MenuComponent``
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+You can use this component to create a tooltip or popup menu. First define the content of the popup in your component's template.
 
-## Further help
+```html
+<popper-menu #menu>
+Hello, this is a tooltip.
+</popper-menu>
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The ``open()`` method of ``MenuComponent`` takes a ``MouseEvent`` object. This is used to position the menu in a relevant area. Here is an example:
+
+```html
+<button (mouseenter)="menu.open($event)" (mouseleave)="menu.close()">Show Tooltip</button>
+```
+
+## Modal Dialog
+
+Selector: ``popper-modal``
+Class: ``ModalComponent``
+
+Use this to easily create a modal dialog. You can control the width of the dialog using the ``width`` property.
+
+```html
+<popper-modal #modal width="300px">
+    <p>Full name:<br/>
+    <input type="text"/></p>
+    <p>E-mail:<br/>
+    <input type="email"/></p>
+    <button (click)="modal.close()">OK</button>
+</popper-modal>
+
+<button (click)="modal.open()">Open Modal</button>
+```
+
+## Progress Indicator
+
+Selector: ``popper-progress-indicator``
+Class: ``ProgressIndicatorComponent``
+
+Use this to show a loading indicator. All you have to do is supply your own animated GIF or SVG using the ``image`` property.
+
+```html
+<popper-progress-indicator image="/assets/loading.svg" *ngIf="showProgress"></popper-progress-indicator>
+```
